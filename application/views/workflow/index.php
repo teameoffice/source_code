@@ -16,7 +16,61 @@
 
             <?php  $this->load->view("admin/common/common_sidebar"); ?>
             <main class="mn-inner inner-active-sidebar">
-                    Silahkan design disini
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Workflow</div> 
+
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                              <a href="<?php echo site_url("workflow/add_workflow/"); ?> "
+                                 class="btn-floating btn-medium waves-effect waves-light right">
+                                 <i class="material-icons">add</i></a>
+                                <span class="card-title">Data Workflow</span> 
+                                <table id="example" class="display responsive-table datatable-example">
+                                    <thead>
+                                       <tr>
+                                            <th>ID</th>
+                                            <th>Nama Workflow</th>
+                                            <th>Date Created</th>
+                                            <th>Date Updated</th>
+                                            <th width= "200">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Workflow</th>
+                                            <th>Date Created</th>
+                                            <th>Date Updated</th>
+                                            <th width= "200">Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php foreach($workflow as $workflow){?>
+                                        <tr>
+                                            <td><?php echo $workflow->id; ?></td>
+                                            <td><?php echo $workflow->nama_workflow; ?></td>
+                                            <td><?php echo date('m F Y / H:i',strtotime($workflow->date_created))?></td>
+                                            <td><?php echo date('m F Y / H:i',strtotime($workflow->date_updated))?></td>
+                                            <td>
+                                                <a href="<?php echo site_url("workflow/edit_workflow/".$workflow->id); ?>">
+                                                <i class="material-icons">mode_edit</i></a>
+                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                               <a href="<?php echo site_url("workflow/delete_workflow/".$workflow->id); ?>" onclick="return confirm('are you sure to delete?')" class=""> 
+
+                                               <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
+                                                <i class="material-icons">delete_forever</i></a>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
            <?php  $this->load->view("admin/common/common_footer"); ?>
         </div>
