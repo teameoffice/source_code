@@ -21,7 +21,7 @@ class Personil extends CI_Controller {
         }
     }
 
-        public function add_personel(){
+    public function add_personel(){
            
         if(_is_user_login($this)){
         
@@ -121,7 +121,7 @@ class Personil extends CI_Controller {
         }
     }
 
-        public function edit_personel($user_id){
+    public function edit_personel($user_id){
         if(_is_user_login($this)){
             $data = array();
             $this->load->model("personel_model");            
