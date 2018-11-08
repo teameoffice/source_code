@@ -16,7 +16,48 @@
 
             <?php  $this->load->view("admin/common/common_sidebar"); ?>
             <main class="mn-inner inner-active-sidebar">
-                    Silahkan design disini
+                  
+                 <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Alur Surat</div> 
+
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                              <a href="<?php echo site_url("workflow/add_workflow/"); ?> "
+                                 class="btn-floating btn-medium waves-effect waves-light right">
+                                 <i class="material-icons">add</i></a>
+                                <span class="card-title">Data Workflow</span> 
+                                <table id="example" class="display responsive-table datatable-example">
+                                    <thead>
+                                       <tr>
+                                            <th>ID</th>
+                                            <th>Nama Alur</th>
+                                            <th>Jumlah Urutan Surat</th>
+                                            <th>Date Created</th>
+                                            <th>Date Upload</th>
+                                            <th width= "200">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Alur</th>
+                                            <th>Jumlah Urutan Surat</th>
+                                            <th>Date Created</th>
+                                            <th>Date Upload</th>
+                                            <th width= "200">Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
            <?php  $this->load->view("admin/common/common_footer"); ?>
         </div>
