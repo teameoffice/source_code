@@ -25,10 +25,10 @@
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                     <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("admin/dashboard") ?>"><i class="material-icons">settings_input_svideo</i>Dashboard</a></li>
                      <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("users/") ?>"><i class="material-icons">perm_identity</i>Pengguna</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("personil/") ?>"><i class="material-icons">supervisor_account</i>Personil</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("departemen/") ?>"><i class="material-icons">work</i>Departemen</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("workflow/") ?>"><i class="material-icons">group_work</i>Workflow</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("workflowsurat/") ?>"><i class="material-icons">loop</i>Workflow Surat</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("personil/") ?>"><i class="material-icons">supervisor_account</i>Data Personil</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("kategori/") ?>"><i class="material-icons">work</i>Kategori Surat</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("workflow/") ?>"><i class="material-icons">group_work</i>Alur</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("workflowsurat/") ?>"><i class="material-icons">loop</i>Alur Surat</a></li>
 
 
                     <li class="divider"></li>
