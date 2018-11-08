@@ -12,13 +12,13 @@ html {
 }
 
 body {
-    background-color: #F4F4F4;
+    background-color: #485156;
     overflow-y: auto!important;
     overflow-x: hidden;
 }
 
 a {
-    color: #0277bb;
+    color: #485156;
 }
 
 text {
@@ -2952,7 +2952,7 @@ input[type=range]::-ms-thumb {
 
 .dataTable.display tbody tr:hover,
 .dataTable.hover tbody tr:hover {
-    background-color: #EEEEEE!important;
+    background-color: #617e82!important;
 }
 
 .dataTable.display tr .sorting_1,
