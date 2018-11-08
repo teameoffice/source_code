@@ -25,10 +25,10 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                              <a href="<?php echo site_url("workflow/add_workflow/"); ?> "
+                              <a href="<?php echo site_url("workflowsurat/add_alur_surat/"); ?> "
                                  class="btn-floating btn-medium waves-effect waves-light right">
                                  <i class="material-icons">add</i></a>
-                                <span class="card-title">Data Workflow</span> 
+                                <span class="card-title">Data Alur</span> 
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                        <tr>
