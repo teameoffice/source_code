@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://localhost/eoffice_fandeka/';
+$config['base_url'] = 'http://localhost/eoffice/';
 $config['theme_admin'] = "theme/admin";
 $config['theme_frontend'] = "theme/frontend";
 
@@ -170,7 +170,7 @@ $config['composer_autoload'] = FALSE;
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 
 /*
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------
 | Enable Query Strings
 |--------------------------------------------------------------------------
 |
