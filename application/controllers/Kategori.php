@@ -19,4 +19,13 @@ class Kategori extends CI_Controller {
         }
     }
 
+
+    public function add_kategori()
+    {
+        if(_is_user_login($this)){
+            $data = array();
+
+            $this->load->view("kategori/add_kategori",$data);
+        }
+    }
 }

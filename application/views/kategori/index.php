@@ -26,7 +26,7 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                              <a href="<?php echo site_url("users/add_user/"); ?> "
+                              <a href="<?php echo site_url("kategori/add_kategori/"); ?>"
                                  class="btn-floating btn-medium waves-effect waves-light right">
                                  <i class="material-icons">add</i></a>
                                 <span class="card-title"></span> 
@@ -49,7 +49,7 @@
                                             <td></td>
                                             <td>
                                                 <div class="switch m-b-md ">
-                                                    <label for='cb_<?php echo $user->user_id; ?>'>
+                                                    <label for='cb_<?php echo $users->users_id; ?>'>
                                                       <input type="checkbox" class="tgl_checkbox"
                                                        data-table="users" 
                                                        data-status="user_status" 
