@@ -34,6 +34,7 @@ public function add_workflow(){
                 $this->load->library('form_validation');
                 
                 $this->form_validation->set_rules('nama_workflow', 'Nama Workflow', 'trim|required');
+                $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required');
                 if ($this->form_validation->run() == FALSE) 
                 {
                   
@@ -62,6 +63,7 @@ public function add_workflow(){
                {
                         
                         $nama_workflow = $this->input->post("nama_workflow");
+                        $deskripsi = $this->input->post("deskripsi");
                         
                       //  print_r($nama_workflow);die();
                    
@@ -70,6 +72,7 @@ public function add_workflow(){
                             $this->common_model->data_insert("workflow",
                                 array(
                                 "nama_workflow"=>$nama_workflow,
+                                "deskripsi"=>$deskripsi,
                                 "date_created"=>date("Y-m-d H:i:sa"),
                                 "date_updated"=>date("Y-m-d H:i:sa"),
                                 "flag_del"=>0));
@@ -102,7 +105,9 @@ public function edit_workflow($id_workflow){
             if($_POST){
                 $this->load->library('form_validation');
                 
-                $this->form_validation->set_rules('nama_workflow', 'Nama Workflow', 'trim|required');                
+                $this->form_validation->set_rules('nama_workflow', 'Nama Workflow', 'trim|required');
+                $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required');
+
                 if ($this->form_validation->run() == FALSE) 
                 {
                   
@@ -129,9 +134,11 @@ public function edit_workflow($id_workflow){
                 {
                         
                        $nama_workflow = $this->input->post("nama_workflow");
+                       $deskripsi = $this->input->post("deskripsi");
                        // print_r(date("Y-m-d H:i:s"));die();
                         $update_array = array(
-                                "nama_workflow"=>$nama_workflow,                    
+                                "nama_workflow"=>$nama_workflow,
+                                "deskripsi"=>$deskripsi,                    
                                 "date_updated"=>date("Y-m-d H:i:s"));
                        // print_r($update_array);print_r($user_id); die();
                        echo  '<script>alert("Data berhasil disimpan...");window.location = "'.site_url().'/workflow/";</script>
