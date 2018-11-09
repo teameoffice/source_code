@@ -24,68 +24,47 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                              <a href="<?php echo site_url("users/add_user/"); ?> "
-                                 class="btn-floating btn-medium waves-effect waves-light right">
-                                 <i class="material-icons">add</i></a>
                                 <span class="card-title">SURAT MASUK</span> 
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nomor Surat</th>
+                                            <th>Nomor Dokumen</th>
                                             <th>Nama Dokumen</th>
                                             <th>Nama Alur</th>
                                             <th>Deskripsi</th>
-                                            <th>Tipe Dokumen</th>
+                                            <th>Nama File</th>
                                             <th>Disetujui</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
- 
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <div class="switch m-b-md ">
-                                                    <label for='cb_<?php echo $user->user_id; ?>'>
-                                                      <input type="checkbox" class="tgl_checkbox"
-                                                       data-table="users" 
-                                                       data-status="user_status" 
-                                                       data-idfield="user_id"
-                                                       data-id="" 
-                                                       id='cb_'
-                                                    <span class="lever"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <a href="">
-                                                <i class="material-icons">mode_edit</i></a>
-                                                &nbsp;&nbsp;&nbsp;&emsp;
-                                               <a href="" onclick="return confirm('are you sure to delete?')" class=""> 
 
-                                               <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
-                                                <i class="material-icons">delete_forever</i></a>
-                                            </td>
+                                        <?php foreach($dokumen as $doc){?>
+                                        <tr>
+                                            <td><?php echo $doc->id; ?></td>
+                                            <td><?php echo $doc->no_dokumen; ?></td>
+                                            <td><?php echo $doc->nama_dokumen; ?></td>
+                                            <td><?php echo $doc->id_workflow; ?></td>
+                                            <td><?php echo $doc->deskripsi; ?></td>
+                                            <td><?php echo $doc->file_name; ?></td>
+                                            <td>Disetujui</td>
+                                            <td>Aksi</td>
+                                            
                                         </tr>
-                                     
+                                         <?php } ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nomor Surat</th>
+                                            <th>Nomor Dokumen</th>
                                             <th>Nama Dokumen</th>
                                             <th>Nama Alur</th>
                                             <th>Deskripsi</th>
-                                            <th>Tipe Dokumen</th>
+                                            <th>Nama File</th>
                                             <th>Disetujui</th>
-                                            <th>Aksi</th>                                            
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                 </table>
