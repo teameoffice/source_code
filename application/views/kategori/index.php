@@ -17,9 +17,8 @@
 
         <div class="mn-content fixed-sidebar">
             <?php  $this->load->view("admin/common/common_header"); ?>
-
             <?php  $this->load->view("admin/common/common_sidebar"); ?>
-            <div class="row">
+            <main class="mn-inner">
                     <div class="col s12">
                         <div class="page-title"></div> 
 
