@@ -18,7 +18,7 @@
                         <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Pengguna</div> 
+                        <div class="page-title">PERSONEL</div> 
 
                     </div>
                     <div class="col s12 m12 l12">
@@ -27,11 +27,12 @@
                               <a href="<?php echo site_url("personil/add_personel/"); ?> "
                                  class="btn-floating btn-medium waves-effect waves-light right">
                                  <i class="material-icons">add</i></a>
-                                <span class="card-title">Data Pengguna</span> 
+                                <span class="card-title">Data Personel</span> 
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                        <tr>
                                             <th>ID</th>
+                                             <th>Nrp</th>
                                             <th>Nama</th>
                                             <th>Pangkat / Korps</th>
                                             <th>Jabatan & Kesatuan</th>
@@ -42,6 +43,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Nrp</th>
                                             <th>Nama</th>
                                             <th>Pangkat / Korps</th>
                                             <th>Jabatan & Kesatuan</th>
@@ -53,6 +55,7 @@
                                         <?php foreach($personel as $personel){?>
                                         <tr>
                                             <td><?php echo $personel->id_user; ?></td>
+                                            <td></td>
                                             <td><?php echo $personel->nama; ?></td>
                                             <td><?php echo $personel->pangkat; ?> / <?php echo $personel->korps ?></td>
                                              <td><?php echo $personel->jabatan; ?> , <?php echo $personel->kesatuan ?></td>
