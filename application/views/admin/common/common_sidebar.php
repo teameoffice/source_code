@@ -33,8 +33,8 @@
 
                     <li class="divider"></li>
                     
-                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("suratmasukadmin/") ?>"><i class="material-icons">library_books</i>Surat Masuk</a></li>
-                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("suratkeluaradmin/") ?>"><i class="material-icons">library_books</i>Surat Keluar</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("suratmasukadmin/") ?>"><i class="material-icons">library_books</i>Surat Masuk Admin</a></li>
+                    <li class="no-padding"><a class="waves-effect waves-grey active" href="<?php echo site_url("suratkeluaradmin/") ?>"><i class="material-icons">library_books</i>Surat Keluar Admin</a></li>
 
                 </ul>
                 <div class="footer">
