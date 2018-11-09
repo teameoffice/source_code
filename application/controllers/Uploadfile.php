@@ -29,7 +29,8 @@ class Uploadfile extends CI_Controller {
                 $this->form_validation->set_rules('id_workflow', 'Alur Surat', 'trim|required');
                 $this->form_validation->set_rules('jenissurat', 'Jenis Surat', 'trim|required');
                 $this->form_validation->set_rules('nama_dokumen', 'Nama Dokumen', 'trim|required');
-                $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required');
+                $this->form_validation->set_rules('no_dokumen', 'No Dokumen', 'trim|required');
+                $this->form_validation->set_rules('tanggal_dokumen', 'Tanggal', 'trim|required');
 
 
                          // $config['upload_path'] = './uploads/studentphoto/';
@@ -42,11 +43,11 @@ class Uploadfile extends CI_Controller {
 
 
 
-                        // print("<pre>".print_r($_FILES,true)."</pre>");
+                        //  print("<pre>".print_r($_POST,true)."</pre>");
 
-                        //  print("<pre>".print_r($_FILES['file']['size'],true)."</pre>");
+                        // //  print("<pre>".print_r($_FILES['file']['size'],true)."</pre>");
 
-                        // die();
+                        //  die();
 
                 if ($this->form_validation->run() == FALSE) 
                 {
@@ -84,6 +85,8 @@ class Uploadfile extends CI_Controller {
                         $nama_dokumen = $this->input->post("nama_dokumen");
                         $deskripsi = $this->input->post("deskripsi");
                         
+                        $no_dokumen = $this->input->post("no_dokumen");
+                        $tanggal_dokumen = $this->input->post("tanggal_dokumen");
                         
                         $file_name="";
                         $config['upload_path'] = './images/';
@@ -101,12 +104,33 @@ class Uploadfile extends CI_Controller {
                                 }
                                   else
                                 {
-                                    $file_data = $this->upload->data();
-                                    $file_name = $file_data["file_name"];
-                                    $file_type = $file_data["file_type"];
+                                    @$file_data = $this->upload->data();
+                                    @$file_name = @$file_data["file_name"];
+                                    @$file_type = @$file_data["file_type"];
+                                    @$file_path = @$file_data["file_path"];
                                     
                                 //  $nama_file["file"] = $file_name;
                                 }
+
+
+                        if(empty($file_data)){
+
+                                $data["error"] =  "<script type='text/javascript'>
+                                                    swal({   
+                                                            title: '',   
+                                                            text: 'File harus dipilih',   
+                                                            type: 'warning',   
+                                                            showCancelButton: false,   
+                                                            confirmButtonColor: '#DD6B55',   
+                                                            confirmButtonText: 'OK', 
+                                                            closeOnConfirm: false 
+                                                        });
+                                            </script>";
+
+                                // $this->load->view("uploadfile/index",$data);
+
+
+                        } else {
 
 
                             $this->load->model("common_model");
@@ -121,23 +145,23 @@ class Uploadfile extends CI_Controller {
                                 "content_type"=>$file_type,
                                 "file_name"=>$file_name,
                                 //"file_path"=>$file_path,
+                                "tanggal_dokumen"=>$tanggal_dokumen,
+                                "no_dokumen"=>$no_dokumen,
 
 
                                 "date_created"=>date("Y-m-d H:i:sa"),
                                 "date_updated"=>date("Y-m-d H:i:sa"),
                                 "flag_del"=>0));
-                            echo  '<script>alert("Data berhasil disimpan...");window.location = "'.site_url().'/uploadfile/";</script>
-                                ';
 
 
-
-
-
-
-
-                        $data["error"] =  "<script type='text/javascript'>
+                                 $data["error"] =  "<script type='text/javascript'>
                                                     swal('Sukses!', 'Data berhasil disimpan', 'success')
                                             </script>";
+
+
+
+                        }
+
                         
                 }
             }
