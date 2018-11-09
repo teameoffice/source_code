@@ -18,7 +18,7 @@
             <main class="mn-inner inner-active-sidebar">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Workflow</div> 
+                        <div class="page-title">Alur</div> 
 
                     </div>
                     <div class="col s12 m12 l12">
@@ -27,12 +27,13 @@
                               <a href="<?php echo site_url("workflow/add_workflow/"); ?> "
                                  class="btn-floating btn-medium waves-effect waves-light right">
                                  <i class="material-icons">add</i></a>
-                                <span class="card-title">Data Workflow</span> 
+                                <span class="card-title">Data Alur</span> 
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                        <tr>
                                             <th>ID</th>
-                                            <th>Nama Workflow</th>
+                                            <th>Nama Alur</th>
+                                            <th>Deskripsi</th>
                                             <th>Date Created</th>
                                             <th>Date Updated</th>
                                             <th width= "200">Action</th>
@@ -42,6 +43,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nama Workflow</th>
+                                            <th>Deskripsi</th>
                                             <th>Date Created</th>
                                             <th>Date Updated</th>
                                             <th width= "200">Action</th>
@@ -52,6 +54,7 @@
                                         <tr>
                                             <td><?php echo $workflow->id; ?></td>
                                             <td><?php echo $workflow->nama_workflow; ?></td>
+                                            <td><?php echo $workflow->deskripsi; ?></td>
                                             <td><?php echo date('m F Y / H:i',strtotime($workflow->date_created))?></td>
                                             <td><?php echo date('m F Y / H:i',strtotime($workflow->date_updated))?></td>
                                             <td>

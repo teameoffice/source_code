@@ -23,7 +23,7 @@
 		<main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
-                        <div class="page-title">Update Workflow</div>
+                        <div class="page-title">Update Alur</div>
                     </div>
                     <div class="col s12 m12 l12">
                         <div class="card">
@@ -32,8 +32,14 @@
                                     <form class="col s12" action="" method="post">
                                         <div class="row">
                                             <div class="input-field col s6">                                               
-                                                <input placeholder="Nama Workflow" id="nama_workflow" type="text" class="validate" name="nama_workflow" value="<?php echo $workflow->nama_workflow; ?>">
-                                                <label for="nama">Nama Workflow</label>
+                                                <input placeholder="Nama Alur" id="nama_workflow" type="text" class="validate" name="nama_workflow" value="<?php echo $workflow->nama_workflow; ?>">
+                                                <label for="nama">Nama Alur</label>
+                                            </div>
+                                        </div> 
+                                        <div class="row">
+                                            <div class="input-field col s6">                                               
+                                                <input placeholder="Deskripsi" id="deskripsi" type="text" class="validate" name="deskripsi" value="<?php echo $workflow->deskripsi; ?>">
+                                                <label for="deskripsi">Deskripsi</label>
                                             </div>
                                         </div> 
                                         <div class="row">
