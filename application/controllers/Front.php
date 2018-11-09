@@ -15,6 +15,13 @@ class Front extends CI_Controller {
             $this->load->view("front/dashboard",$data);
         }
     }
+
+    function profile(){
+        if(_is_user_login($this)){
+            $data = array();
+            $this->load->view("front/profile",$data);
+        }
+    }
     
 
 	
