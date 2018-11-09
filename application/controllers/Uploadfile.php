@@ -10,8 +10,7 @@ class Uploadfile extends CI_Controller {
                 $this->load->helper('login_helper');
         date_default_timezone_set('Asia/Jakarta');       
     }
-	public function index()
-	{
+	public function index(){
 		if(_is_user_login($this)){
             $data = array();
             $this->load->model("kategori_model");
@@ -33,21 +32,10 @@ class Uploadfile extends CI_Controller {
                 $this->form_validation->set_rules('tanggal_dokumen', 'Tanggal', 'trim|required');
 
 
-                         // $config['upload_path'] = './uploads/studentphoto/';
-                         //    $config['allowed_types'] = '.docx';
-                         //   $this->load->library('upload', $config);
-
-                         //    $file_data = $this->upload->data();
-
-                         //    var_dump($file_data);
-
-
-
-                        //  print("<pre>".print_r($_POST,true)."</pre>");
-
-                        // //  print("<pre>".print_r($_FILES['file']['size'],true)."</pre>");
-
-                        //  die();
+                if (empty($_FILES['file']['name']))
+                {
+                    $this->form_validation->set_rules('file', 'Dokumen', 'required');
+                }
 
                 if ($this->form_validation->run() == FALSE) 
                 {
