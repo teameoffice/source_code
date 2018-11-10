@@ -9,7 +9,7 @@ class Suratkeluar extends CI_Controller {
                 $this->load->database();
                 $this->load->helper('login_helper');
     }
-	public function index()
+	function index()
 	{
 		if(_is_user_login($this)){
              $id_user = _get_current_user_id($this);
@@ -23,6 +23,17 @@ class Suratkeluar extends CI_Controller {
 
             $this->load->view("suratkeluar/index",$data);
         }
+    }
+
+    function delete($id){
+        $data = array();
+            $this->load->model("dokumen_model");
+           $data_dokumen = $this->dokumen_model->get_dokumen_by_id($id);
+           if($data_dokumen){
+                $this->db->query("update dokumen set flag_del = 1 where id = '".$data_dokumen->id."'");
+                echo  '<script>alert("Data berhasil dihapus...");window.location = "'.site_url().'/suratkeluar/";</script>
+                                ';
+           }
     }
 
 }

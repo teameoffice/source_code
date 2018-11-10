@@ -121,6 +121,13 @@ class Uploadfile extends CI_Controller {
                         } else {
 
 
+
+                        
+                        $today= date('Ymd');
+                        $uniqid_doc =  uniqid($today.'_');
+                         
+
+
                             $this->load->model("common_model");
                             $this->common_model->data_insert("dokumen",
                                 array(
@@ -132,14 +139,30 @@ class Uploadfile extends CI_Controller {
                                 "deskripsi"=>$deskripsi,
                                 "content_type"=>$file_type,
                                 "file_name"=>$file_name,
-                                //"file_path"=>$file_path,
+                                "file_path"=>$file_path,
+                                "modifikasi"=>'Menunggu Persetujuan',
                                 "tanggal_dokumen"=>$tanggal_dokumen,
                                 "no_dokumen"=>$no_dokumen,
-
-
+                                "uniqid_doc"=>$uniqid_doc,
                                 "date_created"=>date("Y-m-d H:i:sa"),
                                 "date_updated"=>date("Y-m-d H:i:sa"),
                                 "flag_del"=>0));
+
+                            
+                            // simpan ke table ke dua 
+
+                            // $id_dokumen = $this->db->insert_id(); 
+
+                            // $this->load->model("common_model");
+                            // $this->common_model->data_insert("dokumen_approval",
+                            //     array(
+                            //     "id_user"=>$id_user,
+                            //     "id_dokumen"=>$id_dokumen,
+                            //     "approved_by"=>'Menunggu Persetujuan',
+                            //     "uniqid_doc"=>$uniqid_doc,
+                            //     "date_created"=>date("Y-m-d H:i:sa"),
+                            //     "date_updated"=>date("Y-m-d H:i:sa"),
+                            //     "flag_del"=>0));
 
 
                                  $data["error"] =  "<script type='text/javascript'>

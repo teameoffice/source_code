@@ -48,29 +48,38 @@
                                         <?php foreach($dokumen as $doc){?>
                                         <tr>
                                             <td><?php echo $doc->id; ?></td>
-                                            <td><?php echo $doc->no_dokumen; ?></td>
+                                            <td>
+
+                                                <?php echo anchor('suratkeluar/detailsurat/'.$doc->id, $doc->no_dokumen, 'title="Lebih Rinci"'); ?>
+
+                                            </td>
                                             <td><?php echo $doc->nama_dokumen; ?></td>
                                             <td><?php echo $doc->id_workflow; ?></td>
                                             <td><?php echo $doc->deskripsi; ?></td>
                                             <td><?php echo $doc->file_name; ?></td>
-                                            <td>Disetujui</td>
-                                            <td>Aksi</td>
+                                            <td><?php echo $doc->modifikasi; ?></td>
+                                            <td>
+                                                <a href="" title="Kirim">
+                                                <i class="material-icons">send</i></a>
+                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                                <?php 
+                                                if($doc->file_name!=""){
+                                                $file = $this->config->item('base_url')."images/".$doc->file_name;?><?php } ?>
+                                               <a href="<?php echo $file; ?>" download><i class="material-icons" title="Download">cloud_download</i></a>
+                                               &nbsp;&nbsp;&nbsp;&emsp;
+
+                                               <a href="<?php echo site_url("suratkeluar/delete/".$doc->id); ?>" onclick="return confirm('are you sure to delete?')" class="" title="Delete"> 
+
+                                               <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
+                                                <i class="material-icons">delete_forever</i></a>   
+                                            
+
+
+                                            </td>
                                             
                                         </tr>
                                          <?php } ?>
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nomor Dokumen</th>
-                                            <th>Nama Dokumen</th>
-                                            <th>Nama Alur</th>
-                                            <th>Deskripsi</th>
-                                            <th>Nama File</th>
-                                            <th>Disetujui</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
