@@ -28,12 +28,13 @@ class Dokumen_model extends CI_Model{
 
     }
 
-    function get_dokumen_by_flag_and_jenissurat_keluar(){
+    function get_dokumen_by_flag_and_jenissurat_keluar($id_user){
 
         $this->db->select();
         $this->db->from('dokumen');
         $this->db->where('flag_del',0);
         $this->db->where('jenissurat','Surat Keluar');
+        $this->db->where('id_user',$id_user);
         $q = $this->db->get();
         return $q->result();
 
@@ -61,5 +62,12 @@ class Dokumen_model extends CI_Model{
         return $q->row();
     }
    
+    function get_dokumen_by_flag_and_jenissurat_keluar_and_uniqid($uniqid_doc){
+        $q = $this->db->query("select * from dokumen 
+            where  uniqid_doc = '".$uniqid_doc."'
+            and flag_del = 0
+            and jenissurat = 'Surat Keluar' limit 1");
+        return $q->row();
+    }
 }
  ?>
