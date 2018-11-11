@@ -51,7 +51,7 @@ class Suratkeluar extends CI_Controller {
            // cek lagi user_id dan workflow
             $doc = array();
             $doc['dokumen'] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_keluar_and_uniqid($uniqid_doc);
-            if(!empty($doc)){
+            if(!empty($doc['dokumen'] )){
                 $id_workflow = $doc['dokumen']->id_workflow;
                 $id_user = $doc['dokumen']->id_user;
 
@@ -60,14 +60,14 @@ class Suratkeluar extends CI_Controller {
                 $pers['personel'] = $this->personel_model->get_personel_by_id_user($id_user);
 
 
-                if(!empty($pers)){
+                if(!empty($pers['personel'])){
                     $id_personel = $pers['personel']->id;
                     // cek workflow ada tidak
                     $workper = array();
                     $workper['workflow_personel'] = $this->workflowpersonel_model->get_workflow_personel($id_workflow,$id_personel);
 
 
-                    if(!empty($workper)){
+                    if(!empty($workper['workflow_personel'])){
 
                         $urutan = $workper['workflow_personel']->urutan;
                         $id_work = $workper['workflow_personel']->id_workflow;
@@ -84,7 +84,7 @@ class Suratkeluar extends CI_Controller {
 
                         $wokper_lanjut['workflow_personel'] = $this->workflowpersonel_model->get_workflow_personel_lanjut($id_work,$id_table_lanjut,$urutan_lanjut);
 
-                        if(!empty($wokper_lanjut)){
+                        if(!empty($wokper_lanjut['workflow_personel'])){
 
                             $id_person = $wokper_lanjut['workflow_personel']->id_personel;
 
@@ -94,7 +94,7 @@ class Suratkeluar extends CI_Controller {
 
                             $getpersonel['personel'] = $this->personel_model->get_personel_by_id($id_person);
 
-                            if(!empty($getpersonel)){
+                            if(!empty($getpersonel['personel'])){
 
                                 $id_user_getpersonel = $getpersonel['personel']->id_user;
 
@@ -134,7 +134,7 @@ class Suratkeluar extends CI_Controller {
                         $wokper_bawah = array();
                         $wokper_bawah['workflow_personel'] = $this->workflowpersonel_model->get_workflow_personel_bawah($id_work,$id_table_bawah,$urutan_bawah);
 
-                        if(!empty($wokper_bawah)){
+                        if(!empty($wokper_bawah['workflow_personel'])){
 
                             $id_person_bawah = $wokper_bawah['workflow_personel']->id_personel;
 
@@ -143,7 +143,7 @@ class Suratkeluar extends CI_Controller {
                             $getpersonel_bawah['personel'] = $this->personel_model->get_personel_by_id($id_person_bawah);
 
 
-                            if(!empty($getpersonel_bawah)){
+                            if(!empty($getpersonel_bawah['personel'])){
 
                                 $id_user_getpersonel_bawah = $getpersonel_bawah['personel']->id_user;
 
@@ -189,7 +189,7 @@ class Suratkeluar extends CI_Controller {
             }
 
 
-            $this->load->view("suratkeluar/index",$data);
+            $this->index();
         }
     }
 

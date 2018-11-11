@@ -40,7 +40,7 @@ class Suratmasuk extends CI_Controller {
     }
 
 
-    function kirim_surat_masuk($id){
+    function kirim_surat_masuk($uniqid_doc){
         if(_is_user_login($this)){
             $data = array();
 
@@ -51,11 +51,11 @@ class Suratmasuk extends CI_Controller {
             $this->load->model('workflowpersonel_model');
             $this->load->model('personel_model');
            
-            $uniqid_doc = $id;
+            $uniqid_doc = $uniqid_doc;
            // cek lagi user_id dan workflow
             $doc = array();
             $doc['dokumen'] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk_and_uniqid($uniqid_doc);
-            if(!empty($doc)){
+            if(!empty($doc['dokumen'])){
                 $id_workflow = $doc['dokumen']->id_workflow;
                 $id_user = $doc['dokumen']->id_user;
 
@@ -64,14 +64,14 @@ class Suratmasuk extends CI_Controller {
                 $pers['personel'] = $this->personel_model->get_personel_by_id_user($id_user);
 
 
-                if(!empty($pers)){
+                if(!empty($pers['personel'])){
                     $id_personel = $pers['personel']->id;
                     // cek workflow ada tidak
                     $workper = array();
                     $workper['workflow_personel'] = $this->workflowpersonel_model->get_workflow_personel($id_workflow,$id_personel);
 
 
-                    if(!empty($workper)){
+                    if(!empty($workper['workflow_personel'])){
 
                         $urutan = $workper['workflow_personel']->urutan;
                         $id_work = $workper['workflow_personel']->id_workflow;
@@ -88,7 +88,7 @@ class Suratmasuk extends CI_Controller {
 
                         $wokper_lanjut['workflow_personel'] = $this->workflowpersonel_model->get_workflow_personel_lanjut($id_work,$id_table_lanjut,$urutan_lanjut);
 
-                        if(!empty($wokper_lanjut)){
+                        if(!empty($wokper_lanjut['workflow_personel'])){
 
                             $id_person = $wokper_lanjut['workflow_personel']->id_personel;
 
@@ -98,7 +98,7 @@ class Suratmasuk extends CI_Controller {
 
                             $getpersonel['personel'] = $this->personel_model->get_personel_by_id($id_person);
 
-                            if(!empty($getpersonel)){
+                            if(!empty($getpersonel['personel'])){
 
                                 $id_user_getpersonel = $getpersonel['personel']->id_user;
 
@@ -138,8 +138,12 @@ class Suratmasuk extends CI_Controller {
                         $wokper_bawah = array();
                         $wokper_bawah['workflow_personel'] = $this->workflowpersonel_model->get_workflow_personel_bawah($id_work,$id_table_bawah,$urutan_bawah);
 
-                        if(!empty($wokper_bawah)){
 
+                      
+
+                        if(!empty($wokper_bawah['workflow_personel'])){
+
+                             
                             $id_person_bawah = $wokper_bawah['workflow_personel']->id_personel;
 
                             $getpersonel_bawah = array();
@@ -147,7 +151,7 @@ class Suratmasuk extends CI_Controller {
                             $getpersonel_bawah['personel'] = $this->personel_model->get_personel_by_id($id_person_bawah);
 
 
-                            if(!empty($getpersonel_bawah)){
+                            if(!empty($getpersonel_bawah['personel'])){
 
                                 $id_user_getpersonel_bawah = $getpersonel_bawah['personel']->id_user;
 
@@ -193,7 +197,16 @@ class Suratmasuk extends CI_Controller {
             }
 
 
-            $this->load->view("suratmasuk/index",$data);
+            // $data["error"] =  "<script type='text/javascript'>
+            //                                         swal('Sukses!', 'Berhasil', 'success')
+            //                                 </script>";
+            
+            // $data["dokumen"] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk($id_user);
+
+            // $this->load->view("suratmasuk/index",$data);
+
+            $this->index();
+
         }
     }
 
@@ -209,14 +222,110 @@ class Suratmasuk extends CI_Controller {
 
             $this->load->model("dokumen_model");
             $this->load->model("kategori_model");
+            $this->load->model("diteruskankepada_model");
+            $this->load->model("disposisi_model");
 
 
 
+            if($_POST){
+                $this->load->library('form_validation');
+                
+                $this->form_validation->set_rules('no_agd', 'No Agd', 'trim|required');
+                $this->form_validation->set_rules('terima_dari', 'Terima Dari', 'trim|required');
+                $this->form_validation->set_rules('no_surat', 'No Surat', 'trim|required');
+                $this->form_validation->set_rules('klasifikasi', 'Kategori', 'trim|required');
+                $this->form_validation->set_rules('perihal', 'Perihal', 'trim|required');
+                $this->form_validation->set_rules('id_diteruskan_kepada', 'Diteruskan kepada', 'trim|required');
+                $this->form_validation->set_rules('tanggal_terusan', 'Tanggal', 'trim|required');
+                $this->form_validation->set_rules('disposisi_kapus', 'Disposisi Kapus', 'trim|required');
+                $this->form_validation->set_rules('catatan_penyelesaian', 'Catatan Penyelesaian', 'trim|required');
+
+
+                if ($this->form_validation->run() == FALSE) {
+                  
+                $error_array = $this->form_validation->error_string();
+                $error_json = json_encode(strip_tags($error_array));
+                $error_clean = str_replace(['"', '"'], '', $error_json);
+
+                
+               
+                    $data["error"] =  "<script type='text/javascript'>
+                                                    var teks = ' ".$error_clean."';
+                                                    swal({   
+                                                            title: '',   
+                                                            text: teks,   
+                                                            type: 'warning',   
+                                                            showCancelButton: false,   
+                                                            confirmButtonColor: '#DD6B55',   
+                                                            confirmButtonText: 'OK', 
+                                                            closeOnConfirm: false 
+                                                        });
+                                            </script>";
+
+
+                    
+                }else{
+                        
+                        $no_agd = $this->input->post("no_agd");
+                        $terima_dari = $this->input->post("terima_dari");
+                        $no_surat = $this->input->post("no_surat");
+                        $klasifikasi = $this->input->post("klasifikasi");
+                        $id_diteruskan_kepada = $this->input->post("id_diteruskan_kepada");
+                        $perihal = $this->input->post("perihal");
+                        $tanggal_terusan = $this->input->post("tanggal_terusan");
+                        $disposisi_kapus = $this->input->post("disposisi_kapus");
+                        $catatan_penyelesaian = $this->input->post("catatan_penyelesaian");
+
+
+                        // get id dokumen
+                        $doc = array();
+                        $doc['dokumen'] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk_and_uniqid($uniqid_doc);
+                        $id_dokumen = $doc['dokumen']->id;
+
+                        // end
+                        
+
+                        $this->load->model("common_model");
+                        $this->common_model->data_insert("disposisi",
+                                array(
+                                "no_agd"=>$no_agd,
+                                "terima_dari"=>$terima_dari,
+                                "no_surat"=>$no_surat,
+                                "klasifikasi"=>$klasifikasi,
+                                "id_diteruskan_kepada"=>$id_diteruskan_kepada,
+                                "perihal"=>$perihal,
+                                "tanggal_terusan"=>$tanggal_terusan,
+                                "disposisi_kapus"=>$disposisi_kapus,
+                                "catatan_penyelesaian"=>$catatan_penyelesaian,
+                                "flag_del"=>0,
+                                "id_dokumen"=>$id_dokumen,
+                                "date_created"=>date("Y-m-d H:i:sa")));
+
+                            $data["error"] =  "<script type='text/javascript'>
+                                                    swal('Sukses!', 'Data berhasil disimpan', 'success')
+                                            </script>";
+                        
+                }
+            }
 
 
             $data["dokumen"] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk($id_user);
             $data["kategori"] = $this->kategori_model->get_kategori_filter_by_flag_del();
+            $data["diteruskan_kepada"] = $this->diteruskankepada_model->get_diteruskankepada();
 
+
+            
+
+            // get id dokumen
+            $doc = array();
+            $doc['dokumen'] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk_and_uniqid($uniqid_doc);
+            $id_dokumen = $doc['dokumen']->id;
+
+            // end
+            $data['disposisi'] = $this->disposisi_model->get_disposisi($id_dokumen);
+
+
+           
 
             $this->load->view("suratmasuk/disposisi",$data);
 

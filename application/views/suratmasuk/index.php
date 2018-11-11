@@ -95,8 +95,13 @@
         <script src="<?php echo base_url($this->config->item("theme_admin")."/plugins/datatables/js/jquery.dataTables.min.js"); ?>"></script>
         <script src="<?php echo base_url($this->config->item("theme_admin")."/js/alpha.min.js"); ?>"></script>
         <script src="<?php echo base_url($this->config->item("theme_admin")."/js/pages/table-data.js"); ?>"></script>
+        <?php
 
-        <? if(isset($error) && $error!=""){echo $error; } ?>
+
+
+        if(isset($error) && $error!=""){echo $error; } ?>
+
+
         
     </body>
 </html>

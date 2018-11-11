@@ -25,7 +25,11 @@
 
             <?php  $this->load->view("front/common/common_sidebar"); ?>
 
-            <main class="mn-inner">
+
+            <?php if (empty($disposisi)) {
+            ?>
+
+                <main class="mn-inner">
                 <div class="row">
                     <div class="col s12">
                         <div class="page-title">Lembar Disposisi</div>
@@ -97,15 +101,19 @@
                                           </div>
                                         </div>
                                         <hr/>
+
                                         <div class="row">
                                           <div class="col s12 m12 l6">
                                               <div class="card">
                                                   <div class="card-content">
                                                     <div class="file-field input-field">
                                                        
-                                                            <!-- <i class="material-icons prefix">account_circle</i> -->
-                                                            <input id="icon_prefix" type="text" class="validate" name="id_diteruskan_kepada">
-                                                            <label for="icon_prefix" class="">Diteruskan Kepada *</label>
+                                                      <select class="js-states browser-default" tabindex="-1" style="width: 100%" name="id_diteruskan_kepada">
+                                                              <option value="" disabled selected>Diteruskan kepada *</option>
+                                                              <?php foreach($diteruskan_kepada as $kep){?>
+                                                                <option value="<?php echo $kep->id; ?>"><?php echo $kep->nama; ?></option>
+                                                              <?php } ?>
+                                                      </select>
                                                         
                                                     </div>
                                                   </div>
@@ -113,18 +121,14 @@
                                           </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col s12 m12 l6">
-                                              <div class="card">
-                                                  <div class="card-content">
-                                                    <div class="file-field input-field">
-                                                       
-                                                            <!-- <i class="material-icons prefix">account_circle</i> -->
-                                                            <input id="icon_prefix" ype="date" class="datepicker required" name="tanggal_terusan">
-                                                            <label for="icon_prefix" class="">Tanggal *</label>
-                                                        
-                                                    </div>
-                                                  </div>
-                                              </div>
+                                          <div class="col s12 m12 l6">
+
+                                            <div class="input-field col m6 s12">
+                                                  <label for="">Tanggal *</label>
+                                                  <input name="tanggal_terusan" type="date" class="datepicker required">
+                                            </div>
+
+
                                           </div>
 
                                         </div>
@@ -168,8 +172,148 @@
 
 
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                    <form class="col s12" action="<?php echo site_url("suratmasuk/kirim_surat_keluar/".$uniqid_doc); ?>">
+                </div>
+        </main>
+<?php  } else { ?>
+
+
+
+        <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Lembar Disposisi</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <form class="col s12" action="" method="post" enctype="multipart/form-data">
+
+                                      <div class="row">
+                                          <div class="col s4 m4 l6">
+                                            <div class="input-field col s6">
+                                                <label for="icon_prefix" class="">Nomor Agd *</label>
+                                                <input id="icon_prefix" type="text" class="validate" value="<?php echo $disposisi->no_agd; ?>" disabled>
+                                                
+                                            </div>
+                                          </div>
+                                      </div>
+                                          
+                                        <div class="row">
+
+                                          <div class="col s12 m12 l6">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <div class="file-field input-field">
+                                                       
+                                                            <label for="icon_prefix" class="">Terima Dari *</label>
+                                                            <input id="icon_prefix" type="text" class="validate" value="<?php echo $disposisi->terima_dari; ?>" disabled>
+                                                        
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col s12 m12 l6">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <div class="file-field input-field">
+                                                            <input id="icon_prefix" type="text" class="validate" value="<?php echo $disposisi->no_surat; ?>" disabled>
+                                                            <label for="icon_prefix" class="">No Surat / Tanggal *</label>
+                                                        
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="col s12 m12 l6">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                      <span class="card-title">Kategori *</span>
+                                                      <input id="icon_prefix" type="text" class="validate" value="<?php echo $disposisi->klasifikasi; ?>" disabled> 
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col s12 m12 l6">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <div class="file-field input-field">
+                                                            <label for="icon_prefix" class="">Perihal *</label>
+                                                            <input id="icon_prefix" type="text" class="validate" value="<?php echo $disposisi->perihal; ?>" disabled>    
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <hr/>
+
+                                        <div class="row">
+                                          <div class="col s12 m12 l6">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <div class="file-field input-field">
+                                                       
+                                                      <label for="">Diteruskan kepada *</label>
+
+                                                      <input id="icon_prefix" type="text" class="validate" value="<?php echo $disposisi->id_diteruskan_kepada; ?>" disabled>   
+                                                        
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col s12 m12 l6">
+
+                                            <div class="input-field col m6 s12">
+                                                  <label for="">Tanggal *</label>
+                                                  <input value="<?php echo $disposisi->tanggal_terusan; ?>" type="text" class="" disabled>
+                                            </div>
+
+
+                                          </div>
+
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+
+                                            <div class="col s12 m12">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <div class="file-field input-field">
+                                                        <label for="textarea1" class="active">Disposisi Kapus *</label>
+                                                        <input value="<?php echo $disposisi->disposisi_kapus; ?>" type="text" class="" disabled>                                  
+                                                        
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col s12 m12">
+                                              <div class="card">
+                                                  <div class="card-content">
+                                                    <div class="file-field input-field">
+                                                       
+                                                        <label for="textarea1" class="active">Catatan Penyelesaian *</label>
+                                                        <input value="<?php echo $disposisi->catatan_penyelesaian; ?>" type="text" class="" disabled>   
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+
+
+
+
+                                    </form>
+
+                                    <form class="col s12" action="<?php echo site_url("suratmasuk/kirim_surat_masuk/".$uniqid_doc); ?>">
                                         <div class="row">
                                             <div class="input-field col s12">
                                               <button class="btn-floating btn-large  waves-effect waves-light right tooltipped" data-position="bottom" data-delay="50" data-tooltip="Kirim" type="submit" onclick="return confirm('Yakin akan meneruskan?')"><i class="material-icons">send</i>
@@ -185,8 +329,11 @@
                 </div>
         </main>
 
+<?php  } ?>
 
-           <?php  $this->load->view("front/common/common_footer"); ?>
+
+
+          <?php  $this->load->view("front/common/common_footer"); ?>
         </div>
         <div class="left-sidebar-hover"></div>      
 
@@ -210,18 +357,10 @@
 
           <script>
             $(document).ready(function(){
-                $('#tanggal_dokumen').pickadate({
+                $('#tanggal').pickadate({
                     selectMonths: true, // Creates a dropdown to control month
                     changeYear:true,
                     yearRange: "1960:2020"
-                });
-
-                $('input.autocomplete').autocomplete({
-                    data: {
-                        "Apple": null,
-                        "Microsoft": null,
-                        "Google": 'assets/images/google.png'
-                    }
                 });
             });
         </script>
