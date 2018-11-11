@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/plugins/materialize/css/materialize.min.css"); ?>"> 
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/plugins/material-preloader/css/materialPreloader.min.css"); ?>"> 
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/plugins/datatables/css/jquery.dataTables.min.css"); ?>"> 
-
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/css/alpha.min.css"); ?>"> 
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/css/custom.css"); ?>"> 
 
@@ -53,16 +52,16 @@
                                             <td><?php echo $doc->file_name; ?></td>
                                             <td><?php echo $doc->modifikasi; ?></td>
                                             <td>
-                                                <a title="Kirim" href="<?php echo site_url("suratmasuk/kirim_surat_masuk/".$doc->uniqid_doc); ?>" title="Kirim" onclick="return confirm('Yakin akan meneruskan?')">
+                                                <a href="<?php echo site_url("suratmasuk/disposisi/".$doc->uniqid_doc); ?>" onclick="return confirm('Surat masuk memerlukan diposisi, klik OK untuk lanjut')" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Kirim" >
                                                 <i class="material-icons">send</i></a>
                                                 &nbsp;&nbsp;&nbsp;&emsp;
                                                 <?php 
                                                 if($doc->file_name!=""){
                                                 $file = $this->config->item('base_url')."images/".$doc->file_name;?><?php } ?>
-                                               <a href="<?php echo $file; ?>" download><i class="material-icons" title="Download">cloud_download</i></a>
+                                               <a href="<?php echo $file; ?>" download class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unduh"><i class="material-icons">cloud_download</i></a>
                                                &nbsp;&nbsp;&nbsp;&emsp;
 
-                                               <a href="<?php echo site_url("suratmasuk/delete/".$doc->id); ?>" onclick="return confirm('Yakin akan menghapus?')" class="" title="Delete"> 
+                                               <a href="<?php echo site_url("suratmasuk/delete/".$doc->id); ?>" onclick="return confirm('Yakin akan menghapus?')" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Hapus"> 
 
                                                <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
                                                 <i class="material-icons">delete_forever</i></a>   
@@ -78,11 +77,15 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </main>
            <?php  $this->load->view("front/common/common_footer"); ?>
         </div>
-        <div class="left-sidebar-hover"></div>      
+        <div class="left-sidebar-hover"></div> 
+
+
+   
 
 
         <script src="<?php echo base_url($this->config->item("theme_admin")."/plugins/jquery/jquery-2.2.0.min.js"); ?>"></script>

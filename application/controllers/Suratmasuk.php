@@ -197,4 +197,31 @@ class Suratmasuk extends CI_Controller {
         }
     }
 
+
+    function disposisi($uniqid_doc){
+
+
+        if(_is_user_login($this)){
+            $data = array();
+            $data['uniqid_doc'] = $uniqid_doc;
+
+            $id_user = _get_current_user_id($this);
+
+            $this->load->model("dokumen_model");
+            $this->load->model("kategori_model");
+
+
+
+
+
+            $data["dokumen"] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk($id_user);
+            $data["kategori"] = $this->kategori_model->get_kategori_filter_by_flag_del();
+
+
+            $this->load->view("suratmasuk/disposisi",$data);
+
+        }
+
+    }
+
 }
