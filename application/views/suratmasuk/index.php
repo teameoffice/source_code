@@ -53,7 +53,7 @@
                                             <td><?php echo $doc->file_name; ?></td>
                                             <td><?php echo $doc->modifikasi; ?></td>
                                             <td>
-                                                <a href="<?php echo site_url("suratmasuk/kirim_surat_masuk/".$doc->uniqid_doc); ?>" title="Kirim" onclick="return confirm('Yakin akan meneruskan?')">
+                                                <a title="Kirim" href="<?php echo site_url("suratmasuk/kirim_surat_masuk/".$doc->uniqid_doc); ?>" title="Kirim" onclick="return confirm('Yakin akan meneruskan?')">
                                                 <i class="material-icons">send</i></a>
                                                 &nbsp;&nbsp;&nbsp;&emsp;
                                                 <?php 
