@@ -32,7 +32,6 @@
                                             <th>Nomor Dokumen</th>
                                             <th>Nama Dokumen</th>
                                             <th>Nama Alur</th>
-                                            <th>Deskripsi</th>
                                             <th>Nama File</th>
                                             <th>Disetujui</th>
                                             <th>Aksi</th>
@@ -44,14 +43,17 @@
                                         <?php foreach($dokumen as $doc){?>
                                         <tr>
                                             <td><?php echo $doc->id; ?></td>
-                                            <td><?php echo $doc->no_dokumen; ?></td>
+                                            <td>
+
+                                                <?php echo anchor('suratkeluar/detailsurat/'.$doc->id, $doc->no_dokumen, 'title="Lebih Rinci"'); ?>
+
+                                            </td>
                                             <td><?php echo $doc->nama_dokumen; ?></td>
                                             <td><?php echo $doc->id_workflow; ?></td>
-                                            <td><?php echo $doc->deskripsi; ?></td>
                                             <td><?php echo $doc->file_name; ?></td>
                                             <td><?php echo $doc->modifikasi; ?></td>
                                             <td>
-                                                <a href="" title="Kirim">
+                                                <a href="<?php echo site_url("suratmasuk/kirim_surat_masuk/".$doc->uniqid_doc); ?>" title="Kirim" onclick="return confirm('Yakin akan meneruskan?')">
                                                 <i class="material-icons">send</i></a>
                                                 &nbsp;&nbsp;&nbsp;&emsp;
                                                 <?php 
@@ -60,7 +62,7 @@
                                                <a href="<?php echo $file; ?>" download><i class="material-icons" title="Download">cloud_download</i></a>
                                                &nbsp;&nbsp;&nbsp;&emsp;
 
-                                               <a href="<?php echo site_url("suratmasuk/delete/".$doc->id); ?>" onclick="return confirm('are you sure to delete?')" class="" title="Delete"> 
+                                               <a href="<?php echo site_url("suratmasuk/delete/".$doc->id); ?>" onclick="return confirm('Yakin akan menghapus?')" class="" title="Delete"> 
 
                                                <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
                                                 <i class="material-icons">delete_forever</i></a>   
