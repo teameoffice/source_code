@@ -41,40 +41,7 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-
-                                    <tbody>
- 
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <div class="switch m-b-md ">
-                                                    <label for='cb_<?php echo $users->users_id; ?>'>
-                                                      <input type="checkbox" class="tgl_checkbox"
-                                                       data-table="users" 
-                                                       data-status="user_status" 
-                                                       data-idfield="user_id"
-                                                       data-id="" 
-                                                       id='cb_'
-                                                    <span class="lever"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <a href="">
-                                                <i class="material-icons">mode_edit</i></a>
-                                                &nbsp;&nbsp;&nbsp;&emsp;
-                                               <a href="" onclick="return confirm('are you sure to delete?')" class=""> 
-
-                                               <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
-                                                <i class="material-icons">delete_forever</i></a>
-                                            </td>
-                                        </tr>
-                                     
-                                    </tbody>
-                                    <tfoot>
+                                     <tfoot>
                                          <tr>
                                             <th>ID</th>
                                             <th>Nama Kategori</th>
@@ -84,6 +51,26 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
+                                    <tbody>
+                                       <?php foreach($kategori as $kategori){?>
+                                        <tr>
+                                            <td><?php echo $kategori->id; ?></td>
+                                            <td><?php echo $kategori->nama_kategori; ?></td>
+                                            <td><?php echo $kategori->deskripsi; ?></td>
+                                            <td><?php echo date('m F Y / H:i',strtotime($kategori->date_created))?></td>
+                                            <td><?php echo date('m F Y / H:i',strtotime($kategori->date_updated))?></td>
+                                            <td>
+                                                <a href="<?php echo site_url("kategori/edit_kategori/".$kategori->id); ?>">
+                                                <i class="material-icons">mode_edit</i></a>
+                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                               <a href="<?php echo site_url("kategori/delete_kategori/".$kategori->id); ?>" onclick="return confirm('are you sure to delete?')" class=""> 
+
+                                               <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
+                                                <i class="material-icons">delete_forever</i></a>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

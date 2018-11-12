@@ -32,7 +32,7 @@
                                     <form class="col s12" action="" method="post">
                                         <div class="row">
                                             <div class="input-field col s6">                                               
-                                                <input placeholder="Nama Kategori" id="nama_workflow" type="text" class="validate" name="nama_workflow">
+                                                <input placeholder="Nama Kategori" id="nama_kategori" type="text" class="validate" name="nama_kategori">
                                                 <label for="nama">Nama Kategori</label>
                                             </div>
                                             <div class="row">
