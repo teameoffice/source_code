@@ -19,6 +19,13 @@ class Front extends CI_Controller {
     function profile(){
         if(_is_user_login($this)){
             $data = array();
+
+            $id_user = _get_current_user_id($this);
+
+            $this->load->model("personel_model");            
+            $data['personel'] = $this->personel_model->get_personel_by_id_user($id_user);
+
+
             $this->load->view("front/profile",$data);
         }
     }
