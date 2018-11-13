@@ -15,6 +15,7 @@ class Suratkeluar extends CI_Controller {
              $id_user = _get_current_user_id($this);
 
             $this->load->model("dokumen_model");
+            $this->load->model("workflow_model");
 
 
 
@@ -120,7 +121,7 @@ class Suratkeluar extends CI_Controller {
 
 
 
-                                
+
                                      // update status surat user itu sendiri menjadi Terkirim
 
                                     $update_doc = array(

@@ -43,6 +43,8 @@
                                     <tbody>
 
                                         <?php foreach($dokumen as $doc){?>
+
+                                            <?php $workflow = $this->workflow_model->get_workflow_by_id($doc->id_workflow); ?>
                                         <tr>
                                             <td><?php echo $doc->id; ?></td>
                                             <td>
@@ -51,7 +53,7 @@
 
                                             </td>
                                             <td><?php echo $doc->nama_dokumen; ?></td>
-                                            <td><?php echo $doc->id_workflow; ?></td>
+                                            <td><?php echo $workflow->nama_workflow;?></td>
                                             <td><?php echo $doc->deskripsi; ?></td>
                                             <td><?php echo $doc->file_name; ?></td>
                                             <td><?php echo $doc->modifikasi; ?></td>

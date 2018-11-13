@@ -17,6 +17,7 @@ class Suratmasuk extends CI_Controller {
              $id_user = _get_current_user_id($this);
 
             $this->load->model("dokumen_model");
+            $this->load->model("workflow_model");
 
 
 
