@@ -46,8 +46,9 @@
                                             </div>
                             
                                             <div class="input-field col s4">
+                                                <label for="korps">Jenis Kelamin</label><br>
                                                 <input placeholder="jenis_kelamin" id="jenis_kelamin" type="text" class="validate" name="jenis_kelamin" value="<?php echo $personel->jenis_kelamin?>" disabled>
-                                                <label for="korps">Jenis Kelamin</label>
+                                                
                                             </div>
                                                 <div class="input-field col s4">
                                                     <label for="tanggal_lahir">Tanggal Lahir</label><br>
@@ -55,26 +56,26 @@
                                               </div>
 
                                             <div class="input-field col s4">
+                                                 <label for="korps">Matra</label><br>
                                                 <input placeholder="matra" id="jenis_kelamin" type="text" class="validate" name="matra" value="<?php echo $personel->matra?>" disabled>
-                                                <label for="korps">Matra</label>
+                                               
                                             </div>
 
                                         <div class="row">
-                                             <div class="input-field col s4">                                               
+                                             <div class="input-field col s4">      
+                                              <label for="jabatan">Jabatan</label><br>                     
                                                 <input placeholder="Jabatan" id="jabatan" type="text" class="validate" name="jabatan" value="<?php echo $personel->jabatan?>" disabled>
-                                                <label for="jabatan">Jabatan</label>
+                                           
                                             </div>
-                                            <div class="input-field col s4">                                               
-                                                <input placeholder="Kesatuan" id="kesatuan" type="text" class="validate" name="kesatuan"value="<?php echo $personel->kesatuan?>" disabled>
-                                                <label for="kesatuan">Kesatuan</label>
+                                            <div class="input-field col s4">     
+                                             <label for="kesatuan">Kesatuan</label><br>                     
+                                             <input placeholder="Kesatuan" id="kesatuan" type="text" class="validate" name="kesatuan"value="<?php echo $personel->kesatuan?>" disabled>
+                                              
                                             </div>
                                             <div class="input-field col s4">
-                                                <select name="id_user">
-                                                    <option value="" disabled selected>Pilih Username</option>
-                                                    <?php foreach($user as $user){?>
-                                                        <option value="<?php echo $user->user_id; ?>"><?php echo $user->user_name; ?></option>
-                                                    <?php } ?>
-                                                </select>
+                                                <label for="nrp">NRP</label> <br>
+                                                <input placeholder="Kesatuan" id="nrp" type="text" class="validate" name="nrp"value="<?php echo $personel->nrp?>" disabled>
+                                                
                                             </div>
                                         </div>
                                        
