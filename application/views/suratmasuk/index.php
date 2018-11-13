@@ -44,7 +44,7 @@
                                             <td><?php echo $doc->id; ?></td>
                                             <td>
 
-                                                <?php echo anchor('suratkeluar/detailsurat/'.$doc->id, $doc->no_dokumen, 'title="Lebih Rinci"'); ?>
+                                                <?php echo anchor('suratmasuk/detailsurat/'.$doc->id, $doc->no_dokumen, 'title="Lebih Rinci"'); ?>
 
                                             </td>
                                             <td><?php echo $doc->nama_dokumen; ?></td>
