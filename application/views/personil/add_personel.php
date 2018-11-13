@@ -31,12 +31,38 @@
                                 <div class="row">
                                     <form class="col s12" action="" method="post">
                                         <div class="row">
-                                            <div class="input-field col s4">                                               
+                                            <div class="input-field col s4">    
+                                                <label for="nama">Nama</label><br>                                         
                                                 <input placeholder="Nama" id="nama" type="text" class="validate" name="nama">
-                                                <label for="nama">Nama</label>
+                                                
+                                            </div>
+                                            <div class="input-field col s4">
+                                                <div class="col s12">
+                                                    <label for="tanggal_lahir">Tanggal Lahir</label><br>
+                                                    <input id="tanggal_lahir" type="text" class="datepicker">
+                                                </div>
+                                            </div>
+                                            <div class="input-field col s4">    
+                                                <label for="nrp">NRP</label> <br/>                                           
+                                                <input placeholder="NRP" id="nrp" type="text" class="validate" name="nrp">
+                                                
                                             </div>
 
+                                             
+  
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s4"> 
+                                                 <label for="jenis_kelamin">Jenis Kelamin</label><br>                                              
+                                                  <select name="jenis_kelamin">
+                                                    <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
+                                                    <option value="Pria">Pria</option>
+                                                    <option value="Wanita">Wanita</option>
+                                                </select>
+                                            </div>
                                             <div class="input-field col s4">
+                                                <label for="pangkat">Pangkat</label>    
+                                               <br/>
                                                <select name="pangkat">
                                                     <option value="" disabled selected>-- Pilih Pangkat --</option>
                                                     <option value="Prada">Prada</option>
@@ -64,25 +90,14 @@
                                                 </select>
                                             </div>
                                              <div class="input-field col s4">
+                                                <label for="korps">Korps</label></br>
                                                 <input placeholder="Korps" id="korps" type="text" class="validate" name="korps">
-                                                <label for="korps">Korps</label>
+                                                
                                             </div>
+
                                         </div>
                                         <div class="row">
-                                            <div class="input-field col s4"> 
-                                             <label for="jenis_kelamin">Jenis Kelamin</label><br>                                              
-                                                  <select name="jenis_kelamin">
-                                                    <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
-                                                    <option value="Pria">Pria</option>
-                                                    <option value="Wanita">Wanita</option>
-                                                </select>
-                                            </div>
-                                            <div class="input-field col s4">
-                                                <div class="col s12">
-                                                    <label for="tanggal_lahir">Tanggal Lahir</label><br>
-                                                    <input id="tanggal_lahir" type="text" class="datepicker">
-                                                </div>
-                                            </div>
+
                                             <div class="input-field col s4">
                                                <label for="matra">Matra</label><br>
                                                <select name="matra">
@@ -92,16 +107,20 @@
                                                     <option value="TNI AU">TNI AU</option>
                                                 </select>
                                            </div>
-                                        </div>
-                                        <div class="row">
-                                             <div class="input-field col s4">                                               
+                                             <div class="input-field col s4">   
+                                                <label for="jabatan">Jabatan</label> <br>                                            
                                                 <input placeholder="Jabatan" id="jabatan" type="text" class="validate" name="jabatan">
-                                                <label for="jabatan">Jabatan</label>
+                                                
                                             </div>
-                                            <div class="input-field col s4">                                               
+                                            <div class="input-field col s4">     
+                                                <label for="kesatuan">Kesatuan</label> <br>                                          
                                                 <input placeholder="Kesatuan" id="kesatuan" type="text" class="validate" name="kesatuan">
-                                                <label for="kesatuan">Kesatuan</label>
+                                                
                                             </div>
+
+
+                                        </div>
+                                        <div class ="row">
                                             <div class="input-field col s4">
                                                 <select name="id_user">
                                                     <option value="" disabled selected>Pilih Username</option>
