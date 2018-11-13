@@ -52,19 +52,24 @@
                                             <td><?php echo $doc->file_name; ?></td>
                                             <td><?php echo $doc->modifikasi; ?></td>
                                             <td>
-                                                <a href="<?php echo site_url("suratmasuk/disposisi/".$doc->uniqid_doc); ?>" onclick="return confirm('Surat masuk memerlukan diposisi, klik OK untuk lanjut')" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Kirim" >
-                                                <i class="material-icons">send</i></a>
-                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                                 &nbsp;&nbsp;&nbsp;&emsp;
                                                 <?php 
                                                 if($doc->file_name!=""){
                                                 $file = $this->config->item('base_url')."images/".$doc->file_name;?><?php } ?>
                                                <a href="<?php echo $file; ?>" download class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unduh"><i class="material-icons">cloud_download</i></a>
-                                               &nbsp;&nbsp;&nbsp;&emsp;
-
+                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                                <?php if($doc->modifikasi !="Terkirim"){ ?>
                                                <a href="<?php echo site_url("suratmasuk/delete/".$doc->id); ?>" onclick="return confirm('Yakin akan menghapus?')" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Hapus"> 
 
+
                                                <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
-                                                <i class="material-icons">delete_forever</i></a>   
+                                                <i class="material-icons">delete_forever</i></a> 
+                                                <?php }?>  
+                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                                <?php if($doc->modifikasi !="Terkirim"){ ?>
+                                                <a href="<?php echo site_url("suratmasuk/disposisi/".$doc->uniqid_doc); ?>" onclick="return confirm('Surat masuk memerlukan diposisi, klik OK untuk lanjut')" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Kirim" >
+                                                <i class="material-icons">send</i></a>
+                                                <?php }?> 
                                             
 
 

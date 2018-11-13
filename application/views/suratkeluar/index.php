@@ -24,9 +24,6 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                              <a href="<?php echo site_url("users/add_user/"); ?> "
-                                 class="btn-floating btn-medium waves-effect waves-light right">
-                                 <i class="material-icons">add</i></a>
                                 <span class="card-title">SURAT KELUAR</span> 
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
@@ -59,19 +56,25 @@
                                             <td><?php echo $doc->file_name; ?></td>
                                             <td><?php echo $doc->modifikasi; ?></td>
                                             <td>
-                                                <a title="Kirim" href="<?php echo site_url("suratmasuk/kirim_surat_keluar/".$doc->uniqid_doc); ?>" title="Kirim" onclick="return confirm('Yakin akan meneruskan?')">
-                                                <i class="material-icons">send</i></a>
-                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                                 &nbsp;&nbsp;&nbsp;&emsp;
                                                 <?php 
                                                 if($doc->file_name!=""){
                                                 $file = $this->config->item('base_url')."images/".$doc->file_name;?><?php } ?>
                                                <a href="<?php echo $file; ?>" download><i class="material-icons" title="Download">cloud_download</i></a>
-                                               &nbsp;&nbsp;&nbsp;&emsp;
-
+                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                                <?php if($doc->modifikasi !="Terkirim"){ ?>
                                                <a href="<?php echo site_url("suratkeluar/delete/".$doc->id); ?>" onclick="return confirm('are you sure to delete?')" class="" title="Delete"> 
 
                                                <!--  <a class="waves-effect waves-light m-b-xs sweetalert-warning"> -->
-                                                <i class="material-icons">delete_forever</i></a>   
+                                                <i class="material-icons">delete_forever</i></a>  
+
+                                                <?php }?> 
+                                                &nbsp;&nbsp;&nbsp;&emsp;
+                                                <?php if($doc->modifikasi !="Terkirim"){ ?>
+                                                <a title="Kirim" href="<?php echo site_url("suratkeluar/kirim_surat_keluar/".$doc->uniqid_doc); ?>" title="Kirim" onclick="return confirm('Yakin akan meneruskan?')">
+                                                <i class="material-icons">send</i></a>
+                                                <?php }?> 
+
                                             
 
 

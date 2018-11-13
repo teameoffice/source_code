@@ -118,6 +118,23 @@ class Suratkeluar extends CI_Controller {
                                     "flag_del"=>0));
 
 
+
+
+                                
+                                     // update status surat user itu sendiri menjadi Terkirim
+
+                                    $update_doc = array(
+                                    "modifikasi"=>'Terkirim',
+                                    "date_updated"=>date("Y-m-d H:i:sa"));
+
+                                    $kondisi_array = array(
+                                    'uniqid_doc' => $uniqid_doc,
+                                    'id_user' => $id_user);
+
+                                    $this->load->model("common_model");
+                                    $this->common_model->data_update("dokumen",$update_doc,$kondisi_array);
+
+
                             }
 
 
@@ -215,7 +232,7 @@ class Suratkeluar extends CI_Controller {
 
 
 
-            $this->load->view("suratmasuk/detailsurat",$data);
+            $this->load->view("suratkeluar/detailsurat",$data);
         }
     }
 

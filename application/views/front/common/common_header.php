@@ -10,9 +10,9 @@
                             <span class="chapter-title">e-office</span>
                         </div>
 
-                        <ul class="right col s9 m3 nav-right-menu">
+<!--                         <ul class="right col s9 m3 nav-right-menu">
                             <li class="hide-on-small-and-down"><a href="javascript:void(0)" data-activates="dropdown1" class="dropdown-button dropdown-right show-on-large"><i class="material-icons">notifications_none</i><span class="badge">4</span></a></li>
-                        </ul>
+                        </ul> -->
                         
                         <ul id="dropdown1" class="dropdown-content notifications-dropdown">
                             <li class="notificatoins-dropdown-container">
