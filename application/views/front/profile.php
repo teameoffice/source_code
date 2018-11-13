@@ -79,11 +79,7 @@
                                             </div>
                                         </div>
                                        
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <button type="submit" name="submit" class="btn-floating btn-large waves-effect waves-light right"><i class="material-icons">save</i></button>
-                                            </div>
-                                        </div>
+                                       
 
                                     </form>
                                 </div>
