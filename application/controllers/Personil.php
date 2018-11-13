@@ -177,10 +177,13 @@ class Personil extends CI_Controller {
                         
                         $korps = $this->input->post("korps");
 
+
                         $jenis_kelamin = $this->input->post("jenis_kelamin");
                         
                         $tanggal_lahir = $this->input->post("tanggal_lahir");
                       //  print_r($tanggal_lahir);die();
+
+                        $nrp = $this->input->post("nrp");
                         
                         $matra = $this->input->post("matra");
 
@@ -196,6 +199,7 @@ class Personil extends CI_Controller {
                                 "korps"=>$korps,
                                 "jenis_kelamin"=>$jenis_kelamin,
                                 "tanggal_lahir"=>$tanggal_lahir,
+                                "nrp"=>$nrp,
                                 "matra"=>$matra,
                                 "jabatan"=>$jabatan,
                                 "kesatuan"=>$kesatuan,
