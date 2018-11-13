@@ -32,74 +32,40 @@
                                     <form class="col s12" action="" method="post">
                                         <div class="row">
                                             <div class="input-field col s4">                                               
-                                                <input placeholder="Nama" id="nama" type="text" class="validate" name="nama">
+                                                <input placeholder="Nama" id="nama" type="text" class="validate" name="nama" value="<?php echo $personel->nama?>" disabled>
                                                 <label for="nama">Nama</label>
                                             </div>
 
                                             <div class="input-field col s4">
-                                               <select name="pangkat">
-                                                    <option value="" disabled selected>-- Pilih Pangkat --</option>
-                                                    <option value="Prada">Prada</option>
-                                                    <option value="Pratu">Pratu</option>
-                                                    <option value="Praka">Praka</option>
-                                                    <option value="Kopda">Kopda</option>
-                                                    <option value="Koptu">Koptu</option>
-                                                    <option value="Kopka">Kopka</option>
-                                                    <option value="Serda">Serda</option>
-                                                    <option value="Sertu">Sertu</option>
-                                                    <option value="Serka">Serka</option>
-                                                    <option value="Serma">Serma</option>
-                                                    <option value="Pelda">Pelda</option>
-                                                    <option value="Peltu">Peltu</option>
-                                                    <option value="Letda">Letda</option>
-                                                    <option value="Lettu">Lettu</option>
-                                                    <option value="Kapten">Kapten</option>
-                                                    <option value="Mayor">Mayor</option>
-                                                     <option value="Letkol">Letkol</option>
-                                                    <option value="Kolonel">Kolonel</option>
-                                                    <option value="Brigjen">Brigjend</option>
-                                                    <option value="Mayjend">Mayjend</option>
-                                                    <option value="Letjend">Letjend</option>
-                                                    <option value="Jendral">Jendral</option>
-                                                </select>
+                                                <input placeholder="Pangkat" id="pangkat" type="text" class="validate" name="pangkat" value="<?php echo $personel->pangkat?>" disabled>
+                                                 <label for="nama">Pangkat</label>
                                             </div>
                                              <div class="input-field col s4">
-                                                <input placeholder="Korps" id="korps" type="text" class="validate" name="korps">
+                                                <input placeholder="Korps" id="korps" type="text" class="validate" name="korps" value="<?php echo $personel->korps?>" disabled>
                                                 <label for="korps">Korps</label>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s4"> 
-                                             <label for="jenis_kelamin">Jenis Kelamin</label><br>                                              
-                                                  <select name="jenis_kelamin">
-                                                    <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
-                                                    <option value="Pria">Pria</option>
-                                                    <option value="Wanita">Wanita</option>
-                                                </select>
-                                            </div>
+                            
                                             <div class="input-field col s4">
-                                                <div class="col s12">
+                                                <input placeholder="jenis_kelamin" id="jenis_kelamin" type="text" class="validate" name="jenis_kelamin" value="<?php echo $personel->jenis_kelamin?>" disabled>
+                                                <label for="korps">Jenis Kelamin</label>
+                                            </div>
+                                                <div class="input-field col s4">
                                                     <label for="tanggal_lahir">Tanggal Lahir</label><br>
-                                                    <input id="tanggal_lahir" type="text" class="datepicker">
-                                                </div>
-                                            </div>
+                                                    <input type="text" value="<?php echo $personel->tanggal_lahir?>" disabled>
+                                              </div>
+
                                             <div class="input-field col s4">
-                                               <label for="matra">Matra</label><br>
-                                               <select name="matra">
-                                                    <option value="" disabled selected>-- Pilih Matra --</option>
-                                                    <option value="TNI AD">TNI AD</option>
-                                                    <option value="TNI AL">TNI AL</option>
-                                                    <option value="TNI AU">TNI AU</option>
-                                                </select>
-                                           </div>
-                                        </div>
+                                                <input placeholder="matra" id="jenis_kelamin" type="text" class="validate" name="matra" value="<?php echo $personel->matra?>" disabled>
+                                                <label for="korps">Matra</label>
+                                            </div>
+
                                         <div class="row">
                                              <div class="input-field col s4">                                               
-                                                <input placeholder="Jabatan" id="jabatan" type="text" class="validate" name="jabatan">
+                                                <input placeholder="Jabatan" id="jabatan" type="text" class="validate" name="jabatan" value="<?php echo $personel->jabatan?>" disabled>
                                                 <label for="jabatan">Jabatan</label>
                                             </div>
                                             <div class="input-field col s4">                                               
-                                                <input placeholder="Kesatuan" id="kesatuan" type="text" class="validate" name="kesatuan">
+                                                <input placeholder="Kesatuan" id="kesatuan" type="text" class="validate" name="kesatuan"value="<?php echo $personel->kesatuan?>" disabled>
                                                 <label for="kesatuan">Kesatuan</label>
                                             </div>
                                             <div class="input-field col s4">
