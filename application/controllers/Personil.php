@@ -33,6 +33,7 @@ class Personil extends CI_Controller {
                 $this->load->library('form_validation');
                 
                 $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+                $this->form_validation->set_rules('nrp', 'NRP', 'trim|required');
                 $this->form_validation->set_rules('pangkat', 'Pangkat', 'trim|required');
                 $this->form_validation->set_rules('korps', 'Korps', 'trim|required');
                 $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'trim|required');
@@ -78,6 +79,8 @@ class Personil extends CI_Controller {
                         
                         $tanggal_lahir = $this->input->post("tanggal_lahir");
                       //  print_r($tanggal_lahir);die();
+
+                         $nrp = $this->input->post("nrp");
                         
                         $matra = $this->input->post("matra");
 
@@ -98,6 +101,7 @@ class Personil extends CI_Controller {
                                 "korps"=>$korps,
                                 "jenis_kelamin"=>$jenis_kelamin,
                                 "tanggal_lahir"=>$tanggal_lahir,
+                                "nrp"=>$nrp,
                                 "matra"=>$matra,
                                 "jabatan"=>$jabatan,
                                 "kesatuan"=>$kesatuan,

@@ -37,6 +37,30 @@
                                             </div>
 
                                             <div class="input-field col s4">
+                                                <div class="col s12">
+                                                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                                                    <input id="tanggal_lahir" value="<?php echo $user->tanggal_lahir; ?>" type="text" class="datepicker">
+                                                </div>
+                                            </div>
+
+                                            <div class="input-field col s4">                                               
+                                                <input placeholder="NRP" id="nrp" type="text" class="validate" name="nrp" value="<?php echo $user->nrp; ?>">
+                                                <label for="nrp">NRP</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s4"> 
+                                             <label for="jenis_kelamin">Jenis Kelamin</label><br>                                              
+                                                  <select name="jenis_kelamin">                                                   
+                                                    <option <?php if($user->jenis_kelamin=="Pria"){echo "selected";} ?> value="Pria">Pria</option>
+                                                    <option <?php if($user->jenis_kelamin=="Wanita"){echo "selected";} ?> value="Wanita">Wanita</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="input-field col s4">
+                                                <label for="pangkat">Pangkat</label>    
+                                               <br/>
                                                <select name="pangkat">
                                                     <option <?php if($user->pangkat=="Prada"){echo "selected";} ?> value="Prada">Prada</option>
                                                     <option <?php if($user->pangkat=="Pratu"){echo "selected";} ?> value="Pratu">Pratu</option>
@@ -62,36 +86,26 @@
                                                     <option <?php if($user->pangkat=="Jendral"){echo "selected";} ?> value="Jendral">Jendral</option>
                                                 </select>
                                             </div>
-                                             <div class="input-field col s4">
+                                            </br>
+                                            <div class="input-field col s4">
                                                 <input placeholder="Korps" id="korps" type="text" class="validate" name="korps" value="<?php echo $user->korps; ?>">
                                                 <label for="korps">Korps</label>
                                             </div>
+
                                         </div>
+                                             
                                         <div class="row">
-                                            <div class="input-field col s4"> 
-                                             <label for="jenis_kelamin">Jenis Kelamin</label><br>                                              
-                                                  <select name="jenis_kelamin">                                                   
-                                                    <option <?php if($user->jenis_kelamin=="Pria"){echo "selected";} ?> value="Pria">Pria</option>
-                                                    <option <?php if($user->jenis_kelamin=="Wanita"){echo "selected";} ?> value="Wanita">Wanita</option>
-                                                </select>
-                                            </div>
                                             <div class="input-field col s4">
-                                                <div class="col s12">
-                                                    <label for="tanggal_lahir">Tanggal Lahir</label><br>
-                                                    <input id="tanggal_lahir" value="<?php echo $user->tanggal_lahir; ?>" type="text" class="datepicker">
-                                                </div>
-                                            </div>
-                                            <div class="input-field col s4">
-                                               <label for="matra">Matra</label><br>
+                                               <label for="matra">Matra</label></br>
                                                <select name="matra">
                                                     <option <?php if($user->matra=="TNI AD"){echo "selected";} ?> value="TNI AD">TNI AD</option>
                                                     <option <?php if($user->matra=="TNI AL"){echo "selected";} ?> value="TNI AL">TNI AL</option>
                                                     <option <?php if($user->matra=="TNI AU"){echo "selected";} ?> value="TNI AU">TNI AU</option>
                                                 </select>
                                            </div>
-                                        </div>
-                                        <div class="row">
-                                             <div class="input-field col s4">                                               
+                    
+                                            <br>
+                                             <div class="input-field col s4">                                            
                                                 <input value="<?php echo $user->jabatan; ?>" placeholder="Jabatan" id="jabatan" type="text" class="validate" name="jabatan">
                                                 <label for="jabatan">Jabatan</label>
                                             </div>
@@ -99,6 +113,9 @@
                                                 <input value="<?php echo $user->kesatuan; ?>" placeholder="Kesatuan" id="kesatuan" type="text" class="validate" name="kesatuan">
                                                 <label for="kesatuan">Kesatuan</label>
                                             </div>
+
+                                        </div>
+
                                             <div class="input-field col s4">
                                                 <select name="id_user">
                                                     <?php foreach($username as $username){ ?>

@@ -55,7 +55,7 @@
                                         <?php foreach($personel as $personel){?>
                                         <tr>
                                             <td><?php echo $personel->id_user; ?></td>
-                                            <td></td>
+                                            <td><?php echo $personel->nrp; ?></td>
                                             <td><?php echo $personel->nama; ?></td>
                                             <td><?php echo $personel->pangkat; ?> / <?php echo $personel->korps ?></td>
                                              <td><?php echo $personel->jabatan; ?> , <?php echo $personel->kesatuan ?></td>
