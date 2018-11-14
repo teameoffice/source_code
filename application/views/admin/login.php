@@ -71,7 +71,9 @@
                               <div class="card white darken-1">
                                   <div class="card-content ">
                                        <div class="row">
+
                                            <form class="col s12" method="post" action="#">
+                                               <h5>&ensp;e-office </h5>
                                                <div class="input-field col s12">
                                                    <input id="email" type="text" class="validate" name="username">
                                                    <label for="username">Username</label>
