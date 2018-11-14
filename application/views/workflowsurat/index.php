@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/css/alpha.min.css"); ?>"> 
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/css/custom.css"); ?>"> 
 
-
         <div class="mn-content fixed-sidebar">
             <?php  $this->load->view("admin/common/common_header"); ?>
 
@@ -34,24 +33,32 @@
                                        <tr>
                                             <th>ID</th>
                                             <th>Nama Alur</th>
+                                            <th>Deskripsi</th>
                                             <th>Jumlah Urutan Surat</th>
-                                            <th>Date Created</th>
-                                            <th>Date Upload</th>
-                                            <th width= "200">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
                                             <th>Nama Alur</th>
+                                            <th>Deskripsi</th>
                                             <th>Jumlah Urutan Surat</th>
-                                            <th>Date Created</th>
-                                            <th>Date Upload</th>
-                                            <th width= "200">Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        
+                                        <?php $counting=array();?>
+                                       <?php foreach($workflow as $work){?>
+
+                                        <?php $counting = $this->workflowpersonel_model->get_workflow_personel_count($work->id); ?>
+                                        <tr>
+                                            <td><?php echo $work->id; ?></td>
+                                            <td><?php echo anchor('workflowsurat/detailalursurat/'.$work->id,$work->nama_workflow, 'title="Lebih Rinci"'); ?>
+                                            </td>
+                                            <td><?php echo $work->deskripsi; ?></td>
+                                            <td><?php echo $counting->jumlahurutan; ?></td>
+                                            
+                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -14,8 +14,29 @@ class Workflowsurat extends CI_Controller {
 		if(_is_user_login($this)){
             $data = array();
 
+            $this->load->model("workflow_model");
+            $this->load->model("workflowpersonel_model");
 
 
+            $data["workflow"] = $this->workflow_model->get_workflow_filter_by_flag_del();
+            
+
+            
+
+            // $id_workflow = $data["workflow"]->
+
+//             print "<pre>";
+// print_r($data);
+// print "</pre>"; die();
+
+
+
+
+
+            
+
+            //AMBIL DATA WORKFLOW PERSONEL
+            
             $this->load->view("workflowsurat/index",$data);
         }
     }
@@ -74,6 +95,7 @@ public function add_alur_surat(){
                                 "id_personel"=>$_POST['id_personel'][$x],
                                 "date_created"=>date("Y-m-d H:i:sa"),
                                 "flag_del" => 0 );
+
 
                               $this->workflowpersonel_model->data_insert("workflow_personel",$data[$x]);
 

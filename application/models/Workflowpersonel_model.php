@@ -38,6 +38,23 @@ class Workflowpersonel_model extends CI_Model{
         return $q->row();
     }
 
+    function get_workflow_personel_count($id_workflow){
+        $q = $this->db->query("select count(urutan) as jumlahurutan from workflow_personel 
+            where  id_workflow = '".$id_workflow."'
+            and flag_del = 0
+            limit 1");
+        return $q->row();
+    }
+
+
+    function get_workflow_personel_by_id_workflow($id_workflow){
+        $q = $this->db->query("select count(urutan) as jumlahurutan from workflow_personel 
+            where  id_workflow = '".$id_workflow."'
+            and flag_del = 0
+            limit 1");
+        return $q->row();
+    }
+
 
 
 }
