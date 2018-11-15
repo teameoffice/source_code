@@ -81,12 +81,20 @@
                                                     <option value="Lettu">Lettu</option>
                                                     <option value="Kapten">Kapten</option>
                                                     <option value="Mayor">Mayor</option>
-                                                     <option value="Letkol">Letkol</option>
+                                                    <option value="Letkol">Letkol</option>
                                                     <option value="Kolonel">Kolonel</option>
-                                                    <option value="Brigjen">Brigjend</option>
+                                                    <option value="Brigjen">Brigjen</option>
                                                     <option value="Mayjend">Mayjend</option>
                                                     <option value="Letjend">Letjend</option>
                                                     <option value="Jendral">Jendral</option>
+                                                    <option value="Laksma">Laksma</option>
+                                                    <option value="Laksda">Laksda</option>
+                                                    <option value="Laksdya">Laksdya</option>
+                                                    <option value="Laksamana">Laksamana</option>
+                                                    <option value="Marsma">Marsma</option>
+                                                    <option value="Marsda">Marsda</option>
+                                                    <option value="Marsdya">Marsdya</option>
+                                                    <option value="Marsekal">Marsekal</option>
                                                 </select>
                                             </div>
                                              <div class="input-field col s4">
