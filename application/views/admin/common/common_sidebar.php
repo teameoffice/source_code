@@ -6,8 +6,8 @@
                         </div>
                         <div class="sidebar-profile-info">
                             <a href="javascript:void(0);" class="account-settings-link">
-                                <p>David Doe</p>
-                                <span>david@gmail.com<i class="material-icons right">arrow_drop_down</i></span>
+                                <p><?php echo _get_current_user_name($this); ?></p>
+                                <span>user: <?php echo _get_current_user_name($this); ?><i class="material-icons right">arrow_drop_down</i></span>
                             </a>
                         </div>
                     </div>
