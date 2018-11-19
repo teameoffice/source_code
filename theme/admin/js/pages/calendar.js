@@ -4,7 +4,7 @@ $( document ).ready(function() {
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
+				right: 'year,month,agendaWeek,agendaDay'
 			},
 			defaultDate: false,
 			editable: true,
