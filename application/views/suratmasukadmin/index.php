@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php  $this->load->view("common/common_head"); ?>
+    <?php  $this->load->view("common/common_head"); ?> 
     <body>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url($this->config->item("theme_admin")."/plugins/materialize/css/materialize.min.css"); ?>"> 
@@ -24,46 +24,37 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                              <a href="<?php echo site_url("users/add_user/"); ?> "
-                                 class="btn-floating btn-medium waves-effect waves-light right">
-                                 <i class="material-icons">add</i></a>
                                 <span class="card-title">SURAT MASUK ADMIN</span> 
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Nomor Surat</th>
+                                            <th>No</th>
+                                            <th>Nomor Dokumen</th>
                                             <th>Nama Dokumen</th>
                                             <th>Nama Alur</th>
-                                            <th>Deskripsi</th>
-                                            <th>Tipe Dokumen</th>
+                                            <th>Nama File</th>
                                             <th>Disetujui</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
- 
+                                        <?php $no=1; ?>
+                                        <?php foreach ($distinct as $disuniq){ ?>
+                                            
+                                            <?php $data = array(); ?>
+                                            <?php $data = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk_and_uniqid($disuniq->uniqid_doc); ?>
+                                            <?php $workflow = array(); ?>
+                                            <?php $workflow = $this->workflow_model->get_workflow_by_id($data->id_workflow); ?>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?php echo $no++;?></td>
                                             <td>
-                                                <div class="switch m-b-md ">
-                                                    <label for='cb_<?php echo $user->user_id; ?>'>
-                                                      <input type="checkbox" class="tgl_checkbox"
-                                                       data-table="users" 
-                                                       data-status="user_status" 
-                                                       data-idfield="user_id"
-                                                       data-id="" 
-                                                       id='cb_'
-                                                    <span class="lever"></span>
-                                                    </label>
-                                                </div>
+                                                <?php echo anchor('suratmasukadmin/detailsurat/'.$data->id, $data->no_dokumen, 'title="Lebih Rinci"'); ?>
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?php echo $data->nama_dokumen?></td>
+                                            <td><?php echo $workflow->nama_workflow?></td>
+                                            <td><?php echo $data->file_name?></td>
+                                            <td><?php echo $data->modifikasi?></td>
                                             <td>
                                                 <a href="">
                                                 <i class="material-icons">mode_edit</i></a>
@@ -74,20 +65,8 @@
                                                 <i class="material-icons">delete_forever</i></a>
                                             </td>
                                         </tr>
-                                     
+                                     <?php } ?>
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nomor Surat</th>
-                                            <th>Nama Dokumen</th>
-                                            <th>Nama Alur</th>
-                                            <th>Deskripsi</th>
-                                            <th>Tipe Dokumen</th>
-                                            <th>Disetujui</th>
-                                            <th>Aksi</th>                                            
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>

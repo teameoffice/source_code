@@ -20,8 +20,6 @@ class Suratmasuk extends CI_Controller {
             $this->load->model("workflow_model");
 
 
-
-
             $data["dokumen"] = $this->dokumen_model->get_dokumen_by_flag_and_jenissurat_masuk($id_user);
 
             $this->load->view("suratmasuk/index",$data);
