@@ -105,9 +105,38 @@ class Admin extends CI_Controller {
     public function dashboard(){
         if(_is_user_login($this)){
             $data = array();
+
+            $this->load->model("dokumen_model");
+            $this->load->model("users_model");
+            $this->load->model("personel_model");
+            $this->load->model("kategori_model");
+            $this->load->model("workflow_model");
+
+
+            $data["distinct_masuk"] = $this->dokumen_model->get_dokumen_distinct_suratmasuk_uniq();
+            $data["distinct_keluar"] = $this->dokumen_model->get_dokumen_distinct_suratkeluar_uniq();
+            $data["pengguna"] = $this->users_model->get_users();
+            $data["personel"] = $this->personel_model->get_personel_filter_by_flag_del();
+            $data["kategori"] = $this->kategori_model->get_kategori_filter_by_flag_del();
+            $data["workflow"] = $this->workflow_model->get_workflow_filter_by_flag_del();
+
+
+            $data['count_surat_masuk'] = count($data["distinct_masuk"]);
+            $data['count_surat_keluar'] = count($data["distinct_keluar"]);
+            $data['count_pengguna'] = count($data["pengguna"]);
+            $data['count_personel'] = count($data["personel"]);
+            $data['count_kategori'] = count($data["kategori"]);
+            $data['count_workflow'] = count($data["workflow"]);
+
+
+            
+
+
+
             $this->load->view("admin/dashboard",$data);
         }
     }
+
    
  
     
