@@ -33,7 +33,7 @@
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Kategori</th>
                                             <th>Deskripsi</th>
                                             <th>Date Created</th>
@@ -43,7 +43,7 @@
                                     </thead>
                                      <tfoot>
                                          <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Kategori</th>
                                             <th>Deskripsi</th>
                                             <th>Date Created</th>
@@ -51,10 +51,10 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    <tbody><?php $no=1; ?>
                                        <?php foreach($kategori as $kategori){?>
                                         <tr>
-                                            <td><?php echo $kategori->id; ?></td>
+                                            <td><?php echo $no++; ?></td>
                                             <td><?php echo $kategori->nama_kategori; ?></td>
                                             <td><?php echo $kategori->deskripsi; ?></td>
                                             <td><?php echo date('m F Y / H:i',strtotime($kategori->date_created))?></td>

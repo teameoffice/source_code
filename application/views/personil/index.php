@@ -31,7 +31,7 @@
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                        <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                              <th>Nrp</th>
                                             <th>Nama</th>
                                             <th>Pangkat / Korps</th>
@@ -42,7 +42,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nrp</th>
                                             <th>Nama</th>
                                             <th>Pangkat / Korps</th>
@@ -51,10 +51,10 @@
                                             <th width= "200">Action</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    <tbody><?php $no=1; ?>
                                         <?php foreach($personel as $personel){?>
                                         <tr>
-                                            <td><?php echo $personel->id_user; ?></td>
+                                            <td><?php echo $no++; ?></td>
                                             <td><?php echo $personel->nrp; ?></td>
                                             <td><?php echo $personel->nama; ?></td>
                                             <td><?php echo $personel->pangkat; ?> / <?php echo $personel->korps ?></td>

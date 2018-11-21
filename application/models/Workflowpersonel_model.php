@@ -48,16 +48,12 @@ class Workflowpersonel_model extends CI_Model{
 
 
     function get_workflow_personel_by_id_workflow($id_workflow){
-        $this->db->select();
-        $this->db->from('workflow_personel');
-        $this->db->where('id_workflow',$id_workflow);
-        $this->db->where('flag_del',0);
-        $this->db->order_by('urutan', 'asc');
-        $q = $this->db->get();
-        return $q->result();
+        $q = $this->db->query("select count(urutan) as jumlahurutan from workflow_personel 
+            where  id_workflow = '".$id_workflow."'
+            and flag_del = 0
+            limit 1");
+        return $q->row();
     }
-
-
 
 }
  ?>

@@ -35,7 +35,7 @@
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Username</th>
                                             <th>Tipe User</th>
                                             <th>Status</th>
@@ -44,17 +44,17 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Username</th>
                                             <th>Tipe User</th>
                                             <th>Status</th>
                                             <th width= "200">Action</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    <tbody><?php $no=1; ?>
                                         <?php foreach($users as $user){?>
                                         <tr>
-                                            <td><?php echo $user->user_id; ?></td>
+                                            <td><?php echo $no++; ?></td>
                                             <td><?php echo $user->user_name; ?></td>
                                             <td><?php if($user->user_type_id=="1"){ echo "Front User"; } else echo "Admin" ?></td>
                                             <td>

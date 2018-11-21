@@ -31,7 +31,7 @@
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                        <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Alur</th>
                                             <th>Deskripsi</th>
                                             <th>Date Created</th>
@@ -41,7 +41,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Workflow</th>
                                             <th>Deskripsi</th>
                                             <th>Date Created</th>
@@ -49,10 +49,10 @@
                                             <th width= "200">Action</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    <tbody><?php $no=1; ?>
                                         <?php foreach($workflow as $workflow){?>
                                         <tr>
-                                            <td><?php echo $workflow->id; ?></td>
+                                            <td><?php echo $no++; ?></td>
                                             <td><?php echo $workflow->nama_workflow; ?></td>
                                             <td><?php echo $workflow->deskripsi; ?></td>
                                             <td><?php echo date('m F Y / H:i',strtotime($workflow->date_created))?></td>

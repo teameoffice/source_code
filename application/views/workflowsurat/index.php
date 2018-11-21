@@ -31,7 +31,7 @@
                                 <table id="example" class="display responsive-table datatable-example">
                                     <thead>
                                        <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Alur</th>
                                             <th>Deskripsi</th>
                                             <th>Jumlah Urutan Surat</th>
@@ -39,19 +39,19 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>No</th>
                                             <th>Nama Alur</th>
                                             <th>Deskripsi</th>
                                             <th>Jumlah Urutan Surat</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    <tbody><?php $no=1; ?>
                                         <?php $counting=array();?>
                                        <?php foreach($workflow as $work){?>
 
                                         <?php $counting = $this->workflowpersonel_model->get_workflow_personel_count($work->id); ?>
                                         <tr>
-                                            <td><?php echo $work->id; ?></td>
+                                            <td><?php echo $no++; ?></td>
                                             <td><?php echo anchor('workflowsurat/detailalursurat/'.$work->id,$work->nama_workflow, 'title="Lebih Rinci"'); ?>
                                             </td>
                                             <td><?php echo $work->deskripsi; ?></td>
